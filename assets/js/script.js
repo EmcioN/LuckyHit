@@ -126,3 +126,9 @@ function spinOnce() {
 
 }
 spinBtn.addEventListener('click', spinOnce);
+resetBtn.addEventListener('click', () => {
+  balance = DEFAULT_BALANCE;
+  updateBalance();
+  showMsg('More stones!! Good luck!', 'info');
+  spinBtn.disabled = false;
+});
