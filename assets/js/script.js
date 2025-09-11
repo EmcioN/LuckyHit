@@ -2,11 +2,12 @@ const DEFAULT_BALANCE = 100;
 const reels = [1,2,3].map(i => document.getElementById(`reel${i}`));
 const symbols = ["1","2","3","7"];
 const balance1 = document.getElementById('balance');
-const bet = document.getElementById('bet');
+const betInput = document.getElementById('bet');
 const spinBtn = document.getElementById('spin');
 const resetBtn = document.getElementById('reset');
 const msg = document.getElementById('msg');
 
+// -- Storages
 
 function loadBalance() {
     const b = Number(localStorage.getItem('lucky.balance'));
@@ -25,7 +26,7 @@ function saveBet(b) {
     localStorage.setItem('lucky.bet', String(b));
 }
 
-bet.value = loadBet();
+betInput.value = loadBet();
 
 let balance = loadBalance();
 
@@ -52,6 +53,7 @@ function winCheck(x, y , z) {
         return 10;
     if (x === y || x === z || y === z)
         return 5;
+    return 0;
 }
 function showMsg(text, type="info") {
 
@@ -69,21 +71,21 @@ function showMsg(text, type="info") {
     }
 }
 
-bet.addEventListener('change', () => {
-    const b = limitBet(bet.value);
-    bet.value = b;
+betInput.addEventListener('change', () => {
+    const b = limitBet(betInput.value);
+    betInput.value = b;
     saveBet(b);
 });
 function spinOnce() {
-    let bet = limitBet(bet.value);
-    bet.value = bet;
+    let bet = limitBet(betInput.value);
+    betInput.value = bet;
     saveBet(bet);
 
     if (balance < bet) {
         showMsg(`Not enough stones for a bet of ${bet}.`, 'danger');
         return;
     }
-    balance = bet;
+    balance -= bet;
     updateBalance();
     spinBtn.disabled = true;
     showMsg('Throwing stones');
@@ -98,7 +100,7 @@ function spinOnce() {
     function stopReel(index) {
         const symbol = randomSymbol();
         reels[index].textContent = symbol;
-        reels[index].classList.remove('Throwinggit')
+        reels[index].classList.remove('Throwing')
         results[index] = symbol;
         finished += 1;
         if (finished === 3) endSpin();
@@ -111,9 +113,9 @@ function spinOnce() {
             const win = mult * bet;
             balance += win;
             updateBalance();        
-            showMsg(`REsult: ${results.join(' | ')}  → Win +${win} (x${mult})`, 'success');
+            showMsg(`Win +${win} (x${mult})`, 'success');
         } else {
-            showMsg(`Result: ${results.join(' | ')} → No win (-${bet})`, 'danger');
+            showMsg(`No win (-${bet})`, 'danger');
         }
         spinBtn.disabled = balance <= 0;
         if (balance <= 0) {
