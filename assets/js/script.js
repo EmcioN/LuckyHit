@@ -68,3 +68,61 @@ function showMsg(text, type="info") {
             msg.classList.add("alert-info");
     }
 }
+
+bet.addEventListener('change', () => {
+    const b = limitBet(bet.value);
+    bet.value = b;
+    saveBet(b);
+});
+function spinOnce() {
+    let bet = limitBet(bet.value);
+    bet.value = bet;
+    saveBet(bet);
+
+    if (balance < bet) {
+        showMsg(`Not enough stones for a bet of ${bet}.`, 'danger');
+        return;
+    }
+    balance = bet;
+    updateBalance();
+    spinBtn.disabled = true;
+    showMsg('Throwing stones');
+    reels.forEach (r => {
+        r.classList.add('Throwing stones');
+        r.textContent = '?';
+    });
+
+    const results = [null, null, null];
+    let finished = 0;
+
+    function stopReel(index) {
+        const symbol = randomSymbol();
+        reels[index].textContent = symbol;
+        reels[index].classList.remove('Throwing stones')
+        results[index] = symbol;
+        finished += 1;
+        if (finished === 3) endSpin();
+    }
+
+    function endSpin() {
+        const [x, y, z] = results;
+        const mult = winCheck(x, y, z);
+        if (mult > 0) {
+            const win = mult * bet;
+            balance += win;
+            updateBalance();        
+            showMsg(`REsult: ${results.join(' | ')}  → Win +${win} (x${mult})`, 'success');
+        } else {
+            showMsg(`Result: ${results.join(' | ')} → No win (-${bet})`, 'danger');
+        }
+        spinBtn.disabled = balance <= 0;
+        if (balance <= 0) {
+            showMsg('No more Stones. Click reset button to start over', 'danger');
+        }
+    }
+    setTimeout(() => stopReel(0), 300);
+    setTimeout(() => stopReel(1), 600);
+    setTimeout(() => stopReel(2), 900);
+
+}
+spinBtn.addEventListener('click', spinOnce);
