@@ -5,6 +5,7 @@ const balance1 = document.getElementById('balance');
 const bet = document.getElementById('bet');
 const spinBtn = document.getElementById('spin');
 const resetBtn = document.getElementById('reset');
+const msg = document.getElementById('msg');
 
 
 function loadBalance() {
@@ -14,6 +15,17 @@ function loadBalance() {
 function saveBalance(b) {
     localStorage.setItem('lucky.balance', String(b));
 }
+
+function loadBet() {
+    const b = Number(localStorage.getItem('lucky.bet'));
+    return Number.isFinite(b) && b > 0 ? b : 1;
+}
+
+function saveBet(b) {
+    localStorage.setItem('lucky.bet', String(b));
+}
+
+bet.value = loadBet();
 
 let balance = loadBalance();
 
@@ -40,4 +52,19 @@ function winCheck(x, y , z) {
         return 10;
     if (x === y || x === y || y === z)
         return 5;
+}
+function showMsg(text, type="info") {
+
+    msg.textContent = text;
+    msg.classList.remove('d-none', 'alert-info', 'alert-success', 'alert-danger');
+    switch (type) {
+        case "success":
+            msg.classList.add("alert-success");
+            break;
+        case "danger":
+            msg.classList.add("alert-danger");
+            break
+        default:
+            msg.classList.add("alert-info");
+    }
 }
