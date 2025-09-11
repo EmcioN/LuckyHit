@@ -1,11 +1,26 @@
 const DEFAULT_BALANCE = 100;
 const reels = [1,2,3].map(i => document.getElementById(`reel${i}`));
-const symbols = ["1","2","3","7"];
+const symbols = ["1","2","3","4","7"]
 const balance1 = document.getElementById('balance');
 const betInput = document.getElementById('bet');
 const spinBtn = document.getElementById('spin');
 const resetBtn = document.getElementById('reset');
 const msg = document.getElementById('msg');
+
+const fullLine = {
+  "7": 50,  
+  "4": 10,
+  "3": 6,
+  "2": 4,
+  "1": 3
+};
+const pair = {
+  "7": 5, 
+  "4": 3,
+  "3": 2,
+  "2": 2,
+  "1": 1
+};
 
 // -- Storages
 
@@ -49,11 +64,15 @@ function limitBet(b) {
 }
 
 function winCheck(x, y , z) {
-    if (x === y && y === z)
-        return 10;
-    if (x === y || x === z || y === z)
-        return 5;
-    return 0;
+    if (x === y && y === z) {
+        return fullLine[x] || 0;
+    }
+    let pairs = 0;
+    if (x === y) pairs = Math.max(pairs, pair[x] || 0);
+    if (x === z) pairs = Math.max(pairs, pair[x] || 0);
+    if (y === z) pairs = Math.max(pairs, pair[y] || 0);
+
+  return pairs;
 }
 function showMsg(text, type="info") {
 
