@@ -1,4 +1,4 @@
-const DEFAULT_BALANCE = 20;
+const DEFAULT_BALANCE = 100;
 const reels = [1,2,3].map(i => document.getElementById(`reel${i}`));
 const symbols = ["1","2","3","7"];
 const balance1 = document.getElementById('balance');
@@ -37,20 +37,20 @@ function updateBalance() {
 updateBalance();
 
 function randomSymbol() {
-    return symbols[Math.floor(Math.random() * symbols.lenght)];
+    return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
 function limitBet(b) {
     b = Math.floor(Number(b) || 1);
-    if (b < 1) v = 1;
-    if (b > 20) v = 20;
+    if (b < 1) b = 1;
+    if (b > 20) b = 20;
     return b;
 }
 
 function winCheck(x, y , z) {
     if (x === y && y === z)
         return 10;
-    if (x === y || x === y || y === z)
+    if (x === y || x === z || y === z)
         return 5;
 }
 function showMsg(text, type="info") {
@@ -88,7 +88,7 @@ function spinOnce() {
     spinBtn.disabled = true;
     showMsg('Throwing stones');
     reels.forEach (r => {
-        r.classList.add('Throwing stones');
+        r.classList.add('Throwing');
         r.textContent = '?';
     });
 
@@ -98,7 +98,7 @@ function spinOnce() {
     function stopReel(index) {
         const symbol = randomSymbol();
         reels[index].textContent = symbol;
-        reels[index].classList.remove('Throwing stones')
+        reels[index].classList.remove('Throwinggit')
         results[index] = symbol;
         finished += 1;
         if (finished === 3) endSpin();
