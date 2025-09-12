@@ -12,3 +12,15 @@ html {
   width: 100%;
   scroll-behavior: smooth;
 }
+.reel{
+  width: 10rem;
+  height: 10rem;
+  border-radius: 3.5rem;
+  display: grid;
+  place-items: center;
+  font-size: 3.2rem;
+  font-weight: 1000;  
+  color: #0f1521;
+  background: #ffffff;
+  border: 1PX solid rgba(6, 38, 44, 0.06);
+} 
