@@ -24,3 +24,8 @@ html {
   background: #ffffff;
   border: 1PX solid rgba(6, 38, 44, 0.06);
 } 
+.logo{
+  height: auto;
+  width: 80%;
+  display: block;  
+}
