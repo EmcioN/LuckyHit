@@ -13,12 +13,12 @@ html {
   scroll-behavior: smooth;
 }
 .reel{
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: 15rem;
   border-radius: 3.5rem;
   display: grid;
   place-items: center;
-  font-size: 3.2rem;
+  font-size: 4rem;
   font-weight: 1000;  
   color: #0f1521;
   background: #ffffff;
@@ -28,4 +28,7 @@ html {
   height: auto;
   width: 80%;
   display: block;  
+}
+#balance{
+  font-size: 4rem;
 }
