@@ -19,16 +19,45 @@ html {
   display: grid;
   place-items: center;
   font-size: 4rem;
-  font-weight: 1000;  
+  font-weight: 800;
   color: #0f1521;
   background: #ffffff;
-  border: 1PX solid rgba(6, 38, 44, 0.06);
-} 
-.logo{
-  height: auto;
-  width: 80%;
-  display: block;  
+  border: 1px solid rgba(6, 38, 44, 0.06);
 }
 #balance{
-  font-size: 4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 6rem;
+  padding: 0 2rem;
+  border-radius: 3.5rem;
+  background: #ffffff;
+  color: #0f1521;
+  border: 1px solid rgba(6, 38, 44, 0.06);
+  font-size: 3rem;
+  font-weight: 800;
+  text-align: center;  
+}
+.betbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.2rem;
+  gap: 1rem;
+}
+.bet-label{  
+  font-size: 3rem;
+  font-weight: 800;
+}
+.bet-input{  
+  height: 6rem;
+  border-radius: 3.5rem;
+  border: 1px solid rgba(6, 38, 44, 0.06);
+  background: #ffffff;
+  color: #0f1521;
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 800;  
+  padding: 0 1.6rem;
 }

@@ -52,6 +52,8 @@ function updateBalance() {
 
 updateBalance();
 
+// -- Random picker and win checker 
+
 function randomSymbol() {
     return symbols[Math.floor(Math.random() * symbols.length)];
 }
@@ -74,6 +76,9 @@ function winCheck(x, y , z) {
 
   return pairs;
 }
+
+// -- Messages
+
 function showMsg(text, type="info") {
 
     msg.textContent = text;
@@ -95,6 +100,9 @@ betInput.addEventListener('change', () => {
     betInput.value = b;
     saveBet(b);
 });
+
+// -- Spin function
+
 function spinOnce() {
     let bet = limitBet(betInput.value);
     betInput.value = bet;

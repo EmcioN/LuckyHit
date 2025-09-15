@@ -14,9 +14,9 @@
         <div class="card bg-secondary text-light shadow-lg">
             <div class="card-body">
                 <div class="d-flex justify-content-center">
-                    <img src="assets/images/logo.png" alt="Lucky hit" class="logo">
+                    <img src="assets/images/logo.png" alt="Lucky hit" class="img-fluid w-75 d-block">
                 </div>
-                <div class="d-flex justify-content-center mb-5 mt-3">                    
+                <div class="d-flex justify-content-center mb-5 mt-3">
                     <div id="balance">Balance</div>
                 </div>
                 <div class="d-flex justify-content-center fs-1 mb-4 gap-3">
@@ -24,15 +24,15 @@
                     <div class="mx-2 reel" id="reel2" aria-live="polite">2</div>
                     <div class="mx-2 reel" id="reel3" aria-live="polite">3</div>
                 </div>
-                <div class="mb-3">
-                    <div id="betbox" class="row g-2 align-items-center mb-3 justify-content-center">
-                        <label for="bet" class="col-auto">Bet</label>
-                        <div class="col-auto">
-                            <input class="form-control form-control-sm" id="bet" type="number" min="1" max="20"/>
-                        </div>
+                <div class="mb-3">                    
+                    <div id="betbox" class="betbox">
+                        <label for="bet" class="bet-label">Bet</label>
+                        <input id="bet" class="bet-input" type="number" min="1" max="20" />
+                    </div>                    
+                    <div class="bet-actions">
+                        <button class="btn btn-primary btn-big" id="spin">Spin</button>
+                        <button class="btn btn-outline-light btn-big" id="reset">Reset balance</button>
                     </div>
-                    <button class="btn btn-primary me-2" id="spin">Spin</button>
-                    <button class="btn btn-outline-light" id="reset">Reset balance</button>
                 </div>
                 <div class="alert alert-info py-2 d-none" id="msg">Message</div>
                 <div class="mt-3">paytable</div>
