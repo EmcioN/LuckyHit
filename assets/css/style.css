@@ -61,3 +61,19 @@ html {
   font-weight: 800;  
   padding: 0 1.6rem;
 }
+.bet-buttons{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+.buttons{
+  background: #ffffff;
+  color: #0f1521;
+  border: 1px solid rgba(6, 38, 44, 0.06);
+  border-radius: 3.5rem;
+  font-size: 2rem;
+  font-weight: 800;
+  padding: 1rem 2rem;  
+  cursor: pointer;
+}
