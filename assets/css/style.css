@@ -12,7 +12,7 @@ html {
   width: 100%;
   scroll-behavior: smooth;
 }
-.reel{
+.reel {
   width: 15rem;
   height: 15rem;
   border-radius: 3.5rem;
@@ -24,7 +24,7 @@ html {
   background: #ffffff;
   border: 1px solid rgba(6, 38, 44, 0.06);
 }
-#balance{
+#balance {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -36,14 +36,14 @@ html {
   border: 1px solid rgba(6, 38, 44, 0.06);
   font-size: 3rem;
   font-weight: 800;
-  text-align: center;  
+  text-align: center;
 }
-.stone{
+.stone {
   border-radius: 50%;
   height: 6rem;
   margin-left: 1rem;
 }
-.betbox{
+.betbox {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,11 +51,11 @@ html {
   margin-bottom: 1.2rem;
   gap: 1rem;
 }
-.bet-label{  
+.bet-label {
   font-size: 3rem;
   font-weight: 800;
 }
-.bet-input{  
+.bet-input {
   height: 6rem;
   border-radius: 3.5rem;
   border: 1px solid rgba(6, 38, 44, 0.06);
@@ -63,41 +63,55 @@ html {
   color: #0f1521;
   text-align: center;
   font-size: 2.6rem;
-  font-weight: 800;  
+  font-weight: 800;
   padding: 0 1.6rem;
 }
-.bet-buttons{
+.bet-buttons {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
   gap: 1rem;
 }
-.buttons{
+.buttons {
   background: #ffffff;
   color: #0f1521;
   border: 1px solid rgba(6, 38, 44, 0.06);
   border-radius: 3.5rem;
   font-size: 2rem;
   font-weight: 800;
-  padding: 1rem 2rem;  
+  padding: 1rem 2rem;
   cursor: pointer;
 }
-.buttons:hover{ background: #848a8d; }
-#msg{  
+.buttons:hover {
+  background: #848a8d;
+}
+#msg {
   width: 45%;
   min-height: 5rem;
-  margin: 1rem auto 0;  
+  margin: 1rem auto 0;
   text-align: center;
   border: 1px solid rgba(6, 38, 44, 0.06);
-  border-radius: 3.5rem;  
+  border-radius: 3.5rem;
   font-size: 2rem;
   font-weight: 800;
 }
 @keyframes nudge {
-  0%{ transform: translateY(0) }
-  25%{ transform: translateY(-6px) }
-  50%{ transform: translateY(0) }
-  75%{ transform: translateY(6px) }
-  100%{ transform: translateY(0) }
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
-.Throwing { animation: nudge .35s linear infinite; }
+.Throwing {
+  animation: nudge 0.35s linear infinite;
+}
