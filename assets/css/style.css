@@ -38,6 +38,11 @@ html {
   font-weight: 800;
   text-align: center;  
 }
+.stone{
+  border-radius: 50%;
+  height: 6rem;
+  margin-left: 1rem;
+}
 .betbox{
   display: flex;
   align-items: center;
