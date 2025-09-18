@@ -93,3 +93,11 @@ html {
   font-size: 2rem;
   font-weight: 800;
 }
+@keyframes nudge {
+  0%{ transform: translateY(0) }
+  25%{ transform: translateY(-6px) }
+  50%{ transform: translateY(0) }
+  75%{ transform: translateY(6px) }
+  100%{ transform: translateY(0) }
+}
+.Throwing { animation: nudge .35s linear infinite; }
