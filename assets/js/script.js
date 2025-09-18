@@ -1,11 +1,17 @@
 const DEFAULT_BALANCE = 100;
 const reels = [1,2,3].map(i => document.getElementById(`reel${i}`));
-const symbols = ["1","2","3","4","7"]
 const balance1 = document.getElementById('balance');
 const betInput = document.getElementById('bet');
 const spinBtn = document.getElementById('spin');
 const resetBtn = document.getElementById('reset');
 const msg = document.getElementById('msg');
+const symbols = [
+  "1","1","1","1",
+  "2","2",
+  "3","3",
+  "4",
+  "7"
+];
 
 const fullLine = {
   "7": 50,  
