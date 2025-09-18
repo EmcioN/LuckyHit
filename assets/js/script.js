@@ -31,8 +31,10 @@ const pair = {
 // -- Storages
 
 function loadBalance() {
-    const b = Number(localStorage.getItem('lucky.balance'));
-    return Number.isFinite(b) && b >= 0 ? b : DEFAULT_BALANCE;
+  const bal = localStorage.getItem('lucky.balance');
+  if (bal === null) return DEFAULT_BALANCE;
+  const b = Number(bal);
+  return Number.isFinite(b) && b >= 0 ? b : DEFAULT_BALANCE;
 }
 function saveBalance(b) {
     localStorage.setItem('lucky.balance', String(b));
@@ -67,7 +69,7 @@ function randomSymbol() {
 function limitBet(b) {
     b = Math.floor(Number(b) || 1);
     if (b < 1) b = 1;
-    if (b > 20) b = 20;
+    if (b > 200) b = 200;
     return b;
 }
 

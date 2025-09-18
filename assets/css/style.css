@@ -84,8 +84,8 @@ html {
 }
 .buttons:hover{ background: #848a8d; }
 #msg{  
-  width: 35%;
-  min-height: 4rem;
+  width: 45%;
+  min-height: 5rem;
   margin: 1rem auto 0;  
   text-align: center;
   border: 1px solid rgba(6, 38, 44, 0.06);
