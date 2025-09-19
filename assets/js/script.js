@@ -1,3 +1,5 @@
+/* jshint esversion: 6, browser: true */
+/* globals document, localStorage, setTimeout */
 const DEFAULT_BALANCE = 100;
 const reels = [1, 2, 3].map((i) => document.getElementById(`reel${i}`));
 const balance1 = document.getElementById("balance");
@@ -10,8 +12,6 @@ const symbols = [
   "0",
   "0",
   "0",
-  "0",
-  "1",
   "1",
   "1",
   "1",
