@@ -32,10 +32,6 @@
       sizes="16x16"
       href="assets/favicon/favicon-16x16.png"
     />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
   </head>
 
   <body class="bg-dark text-light">
@@ -65,13 +61,16 @@
                 id="bet"
                 class="bet-input"
                 type="number"
+                inputmode="numeric"
                 min="1"
                 max="200"
               />
             </div>
             <div class="bet-buttons">
-              <button class="buttons" id="spin">Spin</button>
-              <button class="buttons" id="reset">Reset balance</button>
+              <button class="buttons" id="spin" type="button">Spin</button>
+              <button class="buttons" id="reset" type="button">
+                Reset balance
+              </button>
             </div>
           </div>
           <div class="alert alert-info py-2 d-none" id="msg" role="status">
