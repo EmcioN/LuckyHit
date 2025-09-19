@@ -1,106 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="description" content="Slot machine for fun. Lucky hit." />
+    <meta
+      name="keywords"
+      content="Slot, Reels, Slot machine, Fun, Casino, Luck, Bet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link href="assets/css/style.css" rel="stylesheet" />
     <title>Lucky Hit</title>
-</head>
+    <!-- favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon/favicon-16x16.png"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="bg-dark text-light">
+  <body class="bg-dark text-light">
     <div class="container py-4">
-        <div class="card bg-secondary text-light shadow-lg">
-            <div class="card-body">
-                <div class="d-flex justify-content-center">
-                    <img src="assets/images/logo.png" alt="Lucky hit logo" class="img-fluid w-75 d-block">
-                </div>
-                <div class="d-flex justify-content-center mb-5 mt-3">
-                    <div id="balance">Balance</div>
-                    <img src="assets/images/stone.png" alt="Stone coin" class="stone">
-                </div>
-                <div class="d-flex justify-content-center fs-1 mb-4 gap-3">
-                    <div class="reel" id="reel1" aria-live="polite">1</div>
-                    <div class="reel" id="reel2" aria-live="polite">2</div>
-                    <div class="reel" id="reel3" aria-live="polite">3</div>
-                </div>
-                <div class="mb-3">
-                    <div id="betbox" class="betbox">
-                        <label for="bet" class="bet-label">Bet</label>
-                        <input id="bet" class="bet-input" type="number" min="1" max="200" />
-                    </div>
-                    <div class="bet-buttons">
-                        <button class="buttons" id="spin">Spin</button>
-                        <button class="buttons" id="reset">Reset balance</button>
-                    </div>
-                </div>
-                <div class="alert alert-info py-2 d-none" id="msg" role="status">Message</div>
-                <section id="paytable" class="mt-4">
-                    <h2 class="h5 mb-2">Paytable</h2>
-
-                    <div class="table-responsive">
-                        <table
-                            class="table table-sm align-middle mb-1 bg-white text-dark border rounded-4 overflow-hidden">
-                            <thead class="table-light">
-                                <tr>
-                                    <th class="text-center">Symbol</th>
-                                    <th class="text-center">3 in a row</th>
-                                    <th class="text-center">Pair</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="fw-bold text-center">7</td>
-                                    <td class="text-center">x50</td>
-                                    <td class="text-center">x5</td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-bold text-center">4</td>
-                                    <td class="text-center">x10</td>
-                                    <td class="text-center">x3</td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-bold text-center">3</td>
-                                    <td class="text-center">x6</td>
-                                    <td class="text-center">x2</td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-bold text-center">2</td>
-                                    <td class="text-center">x4</td>
-                                    <td class="text-center">x2</td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-bold text-center">1</td>
-                                    <td class="text-center">x3</td>
-                                    <td class="text-center">x1</td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-bold text-center">0</td>
-                                    <td class="text-center">x2</td>
-                                    <td class="text-center">x0</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                <section id="instructions-card" class="mt-4">
-                    <h2 class="h5 mb-2">How it works</h2>
-                    <div class="p-3 bg-white text-dark border rounded-4">
-                        <p class="mb-2"><strong>Goal:</strong> Match symbols on 3 reels.</p>
-                        <p class="mb-1"><strong>Bet:</strong> Choose 1–200 stones, then press <strong>Spin</strong>.</p>
-                        <p class="mb-1"><strong>Payouts:</strong> 3 in a row pays the higher multiplier; any pair pays
-                            the pair multiplier.</p>
-                        <p class="mb-1"><strong>Win = multiplier × bet.</strong> Winnings are added to your
-                            balance.</p>
-                        <p class="mb-0"><strong>Reset:</strong> Returns balance to 100 stones.</p>
-                    </div>
-                </section>
+      <div class="card bg-secondary text-light shadow-lg">
+        <div class="card-body">
+          <div class="d-flex justify-content-center">
+            <img
+              src="assets/images/logo.png"
+              alt="Lucky hit logo"
+              class="img-fluid w-75 d-block"
+            />
+          </div>
+          <div class="d-flex justify-content-center mb-5 mt-3">
+            <div id="balance">Balance</div>
+            <img src="assets/images/stone.png" alt="Stone coin" class="stone" />
+          </div>
+          <div class="d-flex justify-content-center fs-1 mb-4 gap-3">
+            <div class="reel" id="reel1" aria-live="polite">1</div>
+            <div class="reel" id="reel2" aria-live="polite">2</div>
+            <div class="reel" id="reel3" aria-live="polite">3</div>
+          </div>
+          <div class="mb-3">
+            <div id="betbox" class="betbox">
+              <label for="bet" class="bet-label">Bet</label>
+              <input
+                id="bet"
+                class="bet-input"
+                type="number"
+                min="1"
+                max="200"
+              />
             </div>
+            <div class="bet-buttons">
+              <button class="buttons" id="spin">Spin</button>
+              <button class="buttons" id="reset">Reset balance</button>
+            </div>
+          </div>
+          <div class="alert alert-info py-2 d-none" id="msg" role="status">
+            Message
+          </div>
+          <section id="paytable" class="mt-4">
+            <h2 class="h5 mb-2">Paytable</h2>
+
+            <div class="table-responsive">
+              <table
+                class="table table-sm align-middle mb-1 bg-white text-dark border rounded-4 overflow-hidden"
+              >
+                <thead class="table-light">
+                  <tr>
+                    <th class="text-center">Symbol</th>
+                    <th class="text-center">3 in a row</th>
+                    <th class="text-center">Pair</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fw-bold text-center">7</td>
+                    <td class="text-center">x50</td>
+                    <td class="text-center">x5</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold text-center">4</td>
+                    <td class="text-center">x10</td>
+                    <td class="text-center">x3</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold text-center">3</td>
+                    <td class="text-center">x6</td>
+                    <td class="text-center">x2</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold text-center">2</td>
+                    <td class="text-center">x4</td>
+                    <td class="text-center">x2</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold text-center">1</td>
+                    <td class="text-center">x3</td>
+                    <td class="text-center">x1</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-bold text-center">0</td>
+                    <td class="text-center">x2</td>
+                    <td class="text-center">x0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <section id="instructions-card" class="mt-4">
+            <h2 class="h5 mb-2">How it works</h2>
+            <div class="p-3 bg-white text-dark border rounded-4">
+              <p class="mb-2">
+                <strong>Goal:</strong> Match symbols on 3 reels.
+              </p>
+              <p class="mb-1">
+                <strong>Bet:</strong> Choose 1–200 stones, then press
+                <strong>Spin</strong>.
+              </p>
+              <p class="mb-1">
+                <strong>Payouts:</strong> 3 in a row pays the higher multiplier;
+                any pair pays the pair multiplier.
+              </p>
+              <p class="mb-1">
+                <strong>Win = multiplier × bet.</strong> Winnings are added to
+                your balance.
+              </p>
+              <p class="mb-0">
+                <strong>Reset:</strong> Returns balance to 100 stones.
+              </p>
+            </div>
+          </section>
         </div>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js" defer></script>
-</body>
-
+  </body>
 </html>
